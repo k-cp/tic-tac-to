@@ -1,0 +1,12 @@
+.container {
+  display: grid;
+  grid-template: repeat(3, 80px)/repeat(3, 80px);
+  justify-content: center;
+  height: 240px;
+}
+
+.container > div {
+  padding: 20px;
+  border: 1px solid black;
+  margin: 1px;
+}/*# sourceMappingURL=css.css.map */
