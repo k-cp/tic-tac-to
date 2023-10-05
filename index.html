@@ -6,9 +6,25 @@
     <title>Tic tac to</title>
     <link rel="stylesheet" href="css.css">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div class="container">
+    <header>Tic-tac-to</header>
+    <div id="main">
+        <div class="left">refererf</div>
+        <div class="container"></div>
+        <div class="right">gddvffvd</div>
+    </div>
+    <div id="play">
+        <form action="#" id="modeSelect">
+            <select name="mode" id="mode">
+                <option value="pvp">Player vs Player</option>
+                <option value="pve">Player vs AI</option>
+            </select>
+            <input type="submit" value="Play" onclick="getMode()"></input>
+        </form>
     </div>
 
     <script src="./javascript.js"></script>
