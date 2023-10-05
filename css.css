@@ -1,3 +1,25 @@
+* {
+  font-family: "Poppins", sans-serif;
+}
+
+header {
+  text-align: center;
+  padding: 40px;
+  font-size: 30px;
+}
+
+#main {
+  display: grid;
+  grid-template-columns: auto auto auto;
+}
+#main .right, #main .left {
+  text-align: center;
+  font-size: 25px;
+}
+#main .notPlaying {
+  opacity: 0.5;
+}
+
 .container {
   display: grid;
   grid-template: repeat(3, 80px)/repeat(3, 80px);
@@ -9,4 +31,30 @@
   padding: 20px;
   border: 1px solid black;
   margin: 1px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+i {
+  font-size: 40px;
+}
+
+#play {
+  margin: 50px;
+}
+#play form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+}
+#play input {
+  padding: 15px 100px;
+  border-radius: 10px;
+}
+
+#mode {
+  padding: 5px 23px;
+  border-radius: 8px;
 }/*# sourceMappingURL=css.css.map */
