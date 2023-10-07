@@ -53,6 +53,9 @@ i {
   padding: 15px 100px;
   border-radius: 10px;
 }
+#play .restartBtn {
+  display: none;
+}
 
 #mode {
   padding: 5px 23px;
