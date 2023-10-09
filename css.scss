@@ -9,21 +9,22 @@ header {
 }
 
 #main {
-    display: grid;
-    grid-template-columns: auto  auto auto;
-
+    display: flex;
+    flex-direction: row;
     .right, .left {
         text-align: center;
         font-size: 25px;
+        flex: 1;
     }
 
     .notPlaying {
-        opacity: 0.5;
+        opacity: 0.3;
     }
 }
 
 .container {
     display: grid;
+    flex: 2;
     grid-template: repeat(3, 80px) / repeat(3, 80px);
     justify-content: center;
     height: 240px;
@@ -51,7 +52,7 @@ i {
         align-items: center;
         gap: 30px;
     }
-    input {
+    .restartBtn {
         padding: 15px 100px;
         border-radius: 10px;
     }
