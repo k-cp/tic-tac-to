@@ -24,6 +24,7 @@ const gameBoard = (() => {
         const blocks = document.querySelectorAll('.block');
         blocks.forEach(block => block.innerHTML = '');
         gameBoard.getMode();
+        board = [];
     }
 
     const left = document.querySelector('.left');
@@ -61,12 +62,13 @@ const gameBoard = (() => {
     };
 
     const addChoice = (event) => {
-        const board = document.querySelector('.container');
+        const container = document.querySelector('.container');
         const left = document.querySelector('.left');
         const right = document.querySelector('.right'); 
-        const classString = event.currentTarget.getAttribute('class').split(' ')
-        if (!board.classList.contains('playing')) {
-            board.classList.toggle('playing');
+        const classString = event.currentTarget.getAttribute('class').split(' ');
+        let player = null;
+        if (!container.classList.contains('playing')) {
+            container.classList.toggle('playing');
             gameBoard.getMode();
         };
         if (event.currentTarget.innerHTML === '') {
@@ -77,6 +79,7 @@ const gameBoard = (() => {
                 right.classList.toggle('notPlaying');
                 left.classList.toggle('notPlaying');
                 board[classString[1]] = 'X';
+                player = 2;
             }
             else {
                 const circle = document.createElement('i');
@@ -85,13 +88,38 @@ const gameBoard = (() => {
                 right.classList.toggle('notPlaying');
                 left.classList.toggle('notPlaying');
                 board[classString[1]] = '0';
+                player = 1;
             }
         }
         //check if win
+        if (checkWin() === 1 && player !== null) {
+            right.classList.toggle('notPlaying');
+            left.classList.toggle('notPlaying');
+            if (player === 1) {
+                left.textContent += ' WINS';
+                container.classList.toggle('playing');
+            }
+            else if (player === 2) {
+                right.textContent +=  ' WINS';
+                container.classList.toggle('playing');
+            }
+        }
+
     }
 
     const checkWin = () => {
-         
+         for (let i = 0; i < 3; i++) {
+            if ((board[i * 3] === board[i * 3 + 1] && board[i * 3 + 1] === board[i * 3  + 2]) && board[i * 3] != undefined) {
+                return 1
+            }
+            if (board[i] === board[i + 3] && board[i + 3] === board[i + 6] && board[i + 3] != undefined) {
+                return 1
+            }
+         }
+         if ((board[0] === board[4] && board[4] === board[8] && board[0] != undefined) || (board[2] === board[4] && board[4] === board[6] && board[2] != undefined)) {
+            return 1
+         }
+         return 0
     }
 
     return {createBoard, restart, getMode, addChoice}
