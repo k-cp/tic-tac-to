@@ -1,7 +1,4 @@
 //まずはゲームボード
-
-
-
 const gameBoard = (() => {
     board = new Array(9);
 
