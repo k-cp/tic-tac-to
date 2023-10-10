@@ -125,14 +125,4 @@ const gameBoard = (() => {
     return {createBoard, restart, getMode, addChoice}
 })();
 
-//次はプレイヤー
-
-const Player = sign => {
-    let _sign = sign
-    const sayName = () => _sign;
-
-    return {name} 
-}
-
-gameBoard.createBoard();
-
+gameBoard.createBoard()
