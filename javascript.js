@@ -1,4 +1,4 @@
-//まずはゲームボード
+//まずはゲームボー
 const gameBoard = (() => {
     board = new Array(9);
 
@@ -18,6 +18,10 @@ const gameBoard = (() => {
     };
     const restart = () => {
         event.preventDefault();
+        const container = document.querySelector('.container')
+        if (container.classList.contains('interim')) {
+            container.classList.remove('interim')
+        }
         const blocks = document.querySelectorAll('.block');
         blocks.forEach(block => block.innerHTML = '');
         gameBoard.getMode();
@@ -64,6 +68,9 @@ const gameBoard = (() => {
         const right = document.querySelector('.right'); 
         const classString = event.currentTarget.getAttribute('class').split(' ');
         let player = null;
+        if (container.classList.contains('interim')) {
+            return
+        }
         if (!container.classList.contains('playing')) {
             container.classList.toggle('playing');
             gameBoard.getMode();
@@ -95,10 +102,12 @@ const gameBoard = (() => {
             if (player === 1) {
                 left.textContent += ' WINS';
                 container.classList.toggle('playing');
+                container.classList.add('interim');
             }
             else if (player === 2) {
                 right.textContent +=  ' WINS';
                 container.classList.toggle('playing');
+                container.classList.add('interim');
             }
         }
 
